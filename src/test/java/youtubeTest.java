@@ -43,6 +43,11 @@ public class youtubeTest {
         search.searchButton();
     }
 
+    @Step("Проверка видео")
+    private void checkVideo() throws InterruptedException {
+        Search search = new Search(driver);
+        search.check();
+    }
 
 
     @Before
@@ -65,16 +70,16 @@ public class youtubeTest {
         driver.get("https://www.youtube.com/");
         openPage.checkLink("ВОЙТИ");
         loginPage("ivanovivanbmw@lenta.ru", "Test1234567890");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         clickOnButton("Добавить видео");
         openPage.checkLink("Добавить видео");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         uploadVideo();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         clickOnButton("Главная страница");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         searchVideo();
-        Thread.sleep(3000);
+        checkVideo();
 
     }
 
